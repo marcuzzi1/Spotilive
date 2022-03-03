@@ -4,7 +4,7 @@
              xmlns:views="clr-namespace:SpotiliveTryHard.Pages"
              Shell.NavBarIsVisible="false">
     <TabBar>
-        <ShellContent Title="Home"
+        <ShellContent Title="Accueil"
                       ContentTemplate="{DataTemplate views:HomePage}">
             <ShellContent.Icon>
                 <FontImageSource FontFamily="Material" Glyph="&#xe88a;" />
@@ -16,6 +16,17 @@
                 <FontImageSource FontFamily="Material" Glyph="&#xe03d;" />
             </ShellContent.Icon>
         </ShellContent>
-        <!--  Bon... Dans l'idée les icônes fonctionnent, mais sur mon téléphone ça n'affiche que des rectangles barrés  -->
+        <ShellContent Title="Albums"
+                      ContentTemplate="{DataTemplate views:AlbumsPage}">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="Material" Glyph="&#xe019;" />
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent Title="Musiques"
+                      ContentTemplate="{DataTemplate views:MusicsPage}">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="Material" Glyph="&#xe3a1;" />
+            </ShellContent.Icon>
+        </ShellContent>
     </TabBar>
 </Shell>
