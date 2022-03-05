@@ -16,9 +16,9 @@ namespace spotilive.ViewModels
         {
             get { return _instance; }
         }
-        public ObservableCollection<Album> ListOfAlbums
+        public ObservableCollection<FullAlbum> ListOfAlbums
         {
-            get => GetValue<ObservableCollection<Album>>();
+            get => GetValue<ObservableCollection<FullAlbum>>();
 
             set => SetValue(value);
         }
@@ -30,7 +30,6 @@ namespace spotilive.ViewModels
 
         public async Task InitListAsync()
         {
-            Debug.WriteLine("SALUT");
             var config = SpotifyClientConfig.CreateDefault();
 
             var request = new ClientCredentialsRequest("04a12d4c788943579aa277274d179ac8", "8d914dd3ad334fc4a09709ad2175284e");
@@ -38,15 +37,17 @@ namespace spotilive.ViewModels
 
             var spotify = new SpotifyClient(config.WithToken(response.AccessToken));
 
-            var randsearch = spotify.Search.Item(new SearchRequest(SearchRequest.Types.Album, "Civilisation"));
+            var searchResponse = await spotify.Search.Item(new SearchRequest(SearchRequest.Types.Album, "Carvery"));
 
-            var albums = randsearch.Result.Albums.Items;
-
-            for (int i = 0; i < randsearch.Result.Albums.Total; i++)
+            for (int i = 0; i < searchResponse.Albums.Total; i++)
             {
-                ListOfAlbums.Add(new Album(albums[i].Name));
-                Debug.WriteLine(albums[i].Name);
+                var album = await spotify.Albums.Get(searchResponse.Albums.Items[i].Id);
+                ListOfAlbums.Add(album);
+
+                Debug.WriteLine(album.Name);
+                Debug.WriteLine(album.Artists[0].Name);
             }
+            
         }
     }
 }
