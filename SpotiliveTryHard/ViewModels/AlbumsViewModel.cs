@@ -23,7 +23,7 @@ namespace spotilive.ViewModels
             set => SetValue(value);
         }
 
-        public void AlbumsViewModelAsync()
+        public AlbumsViewModel()
         {
             _ = InitListAsync();
         }
