@@ -1,53 +1,66 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using SpotifyAPI.Web;
-using spotilive.Models;
+using SpotiliveTryHard.Models;
 using System.Diagnostics;
+using System.Windows.Input;
+using Xamarin.Forms;
 
-namespace spotilive.ViewModels
+namespace SpotiliveTryHard.ViewModels
 {
     public class AlbumsViewModel : BaseViewModel
     {
-        public static AlbumsViewModel _instance = new AlbumsViewModel();
-        public static AlbumsViewModel Instance
-        {
-            get { return _instance; }
-        }
-        public ObservableCollection<FullAlbum> ListOfAlbums
-        {
-            get => GetValue<ObservableCollection<FullAlbum>>();
+        private static AlbumsViewModel _instance = new AlbumsViewModel();
 
-            set => SetValue(value);
+        public static AlbumsViewModel Instance { get { return _instance; } }
+
+        public ObservableCollection<Album> ListOfAlbums
+        {
+            get { return GetValue<ObservableCollection<Album>>(); }
+            set { SetValue(value); }
         }
 
         public AlbumsViewModel()
         {
-            _ = InitListAsync();
+            ListOfAlbums = new ObservableCollection<Album>();
+            _ = FillListAsync("TEST");
         }
 
-        public async Task InitListAsync()
+        public async Task FillListAsync(string search)
         {
             var config = SpotifyClientConfig.CreateDefault();
 
-            var request = new ClientCredentialsRequest("04a12d4c788943579aa277274d179ac8", "8d914dd3ad334fc4a09709ad2175284e");
+            var request = new ClientCredentialsRequest("04a12d4c788943579aa277274d179ac8", "f4cec9611d5245d39efa7c64992b0484");
             var response = await new OAuthClient(config).RequestToken(request);
 
             var spotify = new SpotifyClient(config.WithToken(response.AccessToken));
 
-            var searchResponse = await spotify.Search.Item(new SearchRequest(SearchRequest.Types.Album, "Carvery"));
+            var searchResponse = await spotify.Search.Item(new SearchRequest(SearchRequest.Types.Album, search));
 
-            for (int i = 0; i < searchResponse.Albums.Total; i++)
+            ListOfAlbums.Clear();
+
+            for (int i = 0; i < searchResponse.Albums.Items.Count; i++)
             {
-                var album = await spotify.Albums.Get(searchResponse.Albums.Items[i].Id);
-                ListOfAlbums.Add(album);
+                Debug.WriteLine(searchResponse.Albums.Items[i].Name);
+                Debug.WriteLine(searchResponse.Albums.Items[i].Artists[0].Name);
 
-                Debug.WriteLine(album.Name);
-                Debug.WriteLine(album.Artists[0].Name);
+                var album = new Album(searchResponse.Albums.Items[i].Name);
+
+                ListOfAlbums.Add(album);
             }
-            
+        }
+
+        private ICommand _searchCommand;
+        public ICommand SearchCommand
+        {
+            get
+            {
+                return _searchCommand ?? (_searchCommand = new Command<string>((text) =>
+                {
+                    _ = FillListAsync(text);
+                }));
+            }
         }
     }
 }

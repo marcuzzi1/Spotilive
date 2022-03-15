@@ -1,12 +1,8 @@
-﻿using spotilive.Models;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 
-namespace spotilive.ViewModels
+namespace SpotiliveTryHard.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
