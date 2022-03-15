@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using SpotifyAPI.Web;
-using spotilive.Models;
 using System.Diagnostics;
 
 namespace spotilive.ViewModels
@@ -20,7 +16,7 @@ namespace spotilive.ViewModels
         {
             get => GetValue<ObservableCollection<FullAlbum>>();
 
-            set => SetValue(value);
+            //set => SetValue(value);
         }
 
         public AlbumsViewModel()
@@ -30,24 +26,24 @@ namespace spotilive.ViewModels
 
         public async Task InitListAsync()
         {
+            //ListOfAlbums.Clear();
+            Debug.WriteLine("TU VAS MARCHER ENCULE");
             var config = SpotifyClientConfig.CreateDefault();
 
-            var request = new ClientCredentialsRequest("04a12d4c788943579aa277274d179ac8", "8d914dd3ad334fc4a09709ad2175284e");
+            var request = new ClientCredentialsRequest("079c96c8d58e4cda9e5d1c9e9653c9e8", "07d4306a42d94b27aaddc2887e134c04");
             var response = await new OAuthClient(config).RequestToken(request);
 
             var spotify = new SpotifyClient(config.WithToken(response.AccessToken));
 
-            var searchResponse = await spotify.Search.Item(new SearchRequest(SearchRequest.Types.Album, "Carvery"));
-
-            for (int i = 0; i < searchResponse.Albums.Total; i++)
+            var searchResponse = await spotify.Search.Item(new SearchRequest(SearchRequest.Types.Album, "enfer"));
+            Debug.WriteLine("TU VAS MARCHER BATARD");
+            Debug.WriteLine(searchResponse.Albums.Items.Count);
+            for (int i = 0; i < searchResponse.Albums.Items.Count; i++)
             {
                 var album = await spotify.Albums.Get(searchResponse.Albums.Items[i].Id);
-                ListOfAlbums.Add(album);
-
-                Debug.WriteLine(album.Name);
-                Debug.WriteLine(album.Artists[0].Name);
+                this.ListOfAlbums.Add(album);
             }
-            
+            Debug.WriteLine("C'est tout bon");
         }
     }
 }
