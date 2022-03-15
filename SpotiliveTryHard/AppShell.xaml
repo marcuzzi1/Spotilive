@@ -1,8 +1,8 @@
 ﻿<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SpotiliveTryHard.AppShell"
-             xmlns:views="clr-namespace:SpotiliveTryHard.Pages"
-             Shell.NavBarIsVisible="false">
+             xmlns:views="clr-namespace:SpotiliveTryHard.Pages" xmlns:spotilivetryhard="clr-namespace:SpotiliveTryHard" x:DataType="spotilivetryhard:AppShell"
+       Shell.NavBarIsVisible="false">
     <TabBar>
         <ShellContent Title="Accueil"
                       ContentTemplate="{DataTemplate views:HomePage}">

@@ -1,4 +1,4 @@
-﻿using spotilive.ViewModels;
+﻿using SpotiliveTryHard.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +15,8 @@ namespace SpotiliveTryHard.Pages
     {
         public AlbumsPage()
         {
+            this.BindingContext = AlbumsViewModel.Instance;
             InitializeComponent();
-            BindingContext = new AlbumsViewModel();
         }
     }
 }

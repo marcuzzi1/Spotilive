@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace spotilive.ViewModels
+namespace SpotiliveTryHard.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
