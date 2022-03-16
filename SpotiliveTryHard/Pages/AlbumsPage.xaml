@@ -3,44 +3,80 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SpotiliveTryHard.Pages.AlbumsPage"
-             BackgroundColor="#444">
+             BackgroundColor="#111">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Albums"
                    FontSize="60"
+                   FontAttributes="Bold"
                    TextColor="White"
-                   Margin="20, 0" />
-            <SearchBar CancelButtonColor="White" TextColor="White" x:Name="SearchBar"
-                       Placeholder="Rechercher des albums" PlaceholderColor="White"
-                       SearchCommand="{Binding SearchCommand}"
-                       SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}" />
+                   Margin="20, 20, 0, 0" />
+
+            <Frame Padding="0"
+                   Background="Transparent"
+                   CornerRadius="10">
+                <SearchBar
+                    CancelButtonColor="White"
+                    TextColor="White"
+                    Background="#252525"
+                    Margin="20, 10"
+                    x:Name="SearchBar"
+                    Placeholder="Rechercher des albums" PlaceholderColor="#999"
+                    SearchCommand="{Binding SearchCommand}"
+                    SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}" />
+            </Frame>
+
             <CollectionView
                 ItemsSource="{Binding ListOfAlbums}"
-                Margin="10"
+                Margin="10, 10, 10, 0"
                 SelectionMode="Single"
                 SelectionChanged="ViewCell_Tapped">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout>
-                            <Grid RowSpacing="10"
+                        <Frame Padding="0"
+                               Background="Transparent"
+                               CornerRadius="40">
+                            <StackLayout>
+                                <Grid RowSpacing="10"
                                   ColumnSpacing="10"
-                                  Padding="10, 0"
                                   Margin="10"
-                                  BackgroundColor="#222">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <Image Source="{Binding Thumbnail}"
-                                       WidthRequest="75"
-                                       HeightRequest="75" />
-                                <Label Grid.Column="1"
-                                       VerticalOptions="Center"
+                                  BackgroundColor="#272727">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Image Grid.Column="0"
+                                       Grid.RowSpan="2"
+                                       Source="{Binding Thumbnail}"
+                                       WidthRequest="80"
+                                       HeightRequest="80" />
+
+                                    <Label Grid.Column="1"
+                                       Grid.Row="0"
+                                       Padding="0, 10, 10, 0"
                                        Text="{Binding Name}"
+                                       MaxLines="1"
+                                       LineBreakMode="TailTruncation"
                                        TextColor="White"
                                        FontSize="Large" />
-                            </Grid>
-                        </StackLayout>
+
+                                    <Label Grid.Column="1"
+                                       Grid.Row="1"
+                                       Padding="0, 0, 10, 10"
+                                       VerticalOptions="End"
+                                       MaxLines="1"
+                                       LineBreakMode="TailTruncation"
+                                       Text="{Binding Artist}"
+                                       TextColor="#BBB"/>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

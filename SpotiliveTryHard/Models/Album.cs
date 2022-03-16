@@ -7,11 +7,13 @@ namespace SpotiliveTryHard.Models
     {
         public string Name { get; set; }
         public string Thumbnail { get; set; }
+        public string Artist { get; set; }
 
-        public Album(string name, string thumbnailUrl)
+        public Album(string name, string thumbnailUrl, string artist)
         {
             Name = name;
             Thumbnail = thumbnailUrl;
+            Artist = artist;
         }
     }
 }

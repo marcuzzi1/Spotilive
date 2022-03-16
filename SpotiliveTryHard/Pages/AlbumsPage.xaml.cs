@@ -19,8 +19,7 @@ namespace SpotiliveTryHard.Pages
 
         private async void ViewCell_Tapped(object sender, SelectionChangedEventArgs e)
         {
-            Album album = e.CurrentSelection.FirstOrDefault() as Album;
-            if (album == null)
+            if (!(e.CurrentSelection.FirstOrDefault() is Album album))
             {
                 return;
             }

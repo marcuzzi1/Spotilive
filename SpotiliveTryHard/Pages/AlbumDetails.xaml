@@ -8,7 +8,7 @@
         <Label Text="Retour"
                TextColor="White"
                FontSize="Medium"
-               VerticalOptions="Center">
+               VerticalTextAlignment="Center">
         </Label>
     </Shell.TitleView>
     <ContentPage.Content>

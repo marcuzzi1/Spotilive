@@ -40,17 +40,14 @@ namespace SpotiliveTryHard.ViewModels
 
             for (int i = 0; i < searchResponse.Albums.Items.Count; i++)
             {
+                var res = searchResponse.Albums.Items[i];
                 var album = new Album(
-                    searchResponse.Albums.Items[i].Name,
-                    searchResponse.Albums.Items[i].Images[0].Url
+                    res.Name,
+                    res.Images[0].Url,
+                    res.Artists[0].Name
                     );
                 ListOfAlbums.Add(album);
             }
-        }
-
-        public void OnTapped()
-        {
-            Debug.WriteLine("TEST");
         }
 
         private ICommand _searchCommand;

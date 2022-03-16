@@ -6,6 +6,16 @@
        x:DataType="spotilivetryhard:AppShell"
        Shell.NavBarIsVisible="false">
     <TabBar>
+        <TabBar.Style>
+            <Style TargetType="TabBar">
+                <Setter Property="Shell.TabBarBackgroundColor"
+            Value="#000" />
+                <Setter Property="Shell.TabBarTitleColor"
+            Value="White" />
+                <Setter Property="Shell.TabBarUnselectedColor"
+            Value="#999" />
+            </Style>
+        </TabBar.Style>
         <ShellContent Title="Accueil"
                       ContentTemplate="{DataTemplate views:HomePage}">
             <ShellContent.Icon>
