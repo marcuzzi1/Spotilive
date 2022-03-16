@@ -1,6 +1,8 @@
 ﻿using SpotiliveTryHard.ViewModels;
 using System;
 using System.Diagnostics;
+using System.Linq;
+using SpotiliveTryHard.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,9 +17,16 @@ namespace SpotiliveTryHard.Pages
             InitializeComponent();
         }
 
-        private async void ViewCell_Tapped(object sender, EventArgs e)
+        private async void ViewCell_Tapped(object sender, SelectionChangedEventArgs e)
         {
-            await Navigation.PushAsync(new HomePage());
+            Album album = e.CurrentSelection.FirstOrDefault() as Album;
+            if (album == null)
+            {
+                return;
+            }
+
+            (sender as CollectionView).SelectedItem = null;
+            await Navigation.PushAsync(new AlbumDetails(album));
         }
     }
 }
