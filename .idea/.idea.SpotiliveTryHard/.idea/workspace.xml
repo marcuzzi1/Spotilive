@@ -12,8 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="63d3dc43-118f-4821-a53d-ba74aebce4eb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SpotiliveTryHard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpotiliveTryHard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/AppShell.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/AppShell.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumsPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumsPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumsPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumsPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/Pages/HomePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/HomePage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/ViewModels/AlbumsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/ViewModels/AlbumsViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,6 +77,7 @@
       <workItem from="1647354816959" duration="257000" />
       <workItem from="1647356164576" duration="2869000" />
       <workItem from="1647362549355" duration="962000" />
+      <workItem from="1647429605935" duration="3701000" />
     </task>
     <task id="LOCAL-00001" summary="Merging">
       <created>1647339799955</created>

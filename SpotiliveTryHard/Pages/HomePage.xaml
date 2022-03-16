@@ -3,7 +3,7 @@
              x:Class="SpotiliveTryHard.Pages.HomePage">
     <ContentPage.Content>
       <StackLayout>
-          <Label Text="Là c'est ma home page" />
+          <Label Text="Ok donc si je fais ça ça marche !!" />
       </StackLayout>
   </ContentPage.Content>
 </ContentPage>
