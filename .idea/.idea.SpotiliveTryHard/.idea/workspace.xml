@@ -10,14 +10,7 @@
     <projectFile>SpotiliveTryHard.Android/SpotiliveTryHard.Android.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63d3dc43-118f-4821-a53d-ba74aebce4eb" name="Changes" comment="Push">
-      <change afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumDetails.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumDetails.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SpotiliveTryHard/ViewModels/AlbumDetailsViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SpotiliveTryHard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpotiliveTryHard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumsPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumsPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumsPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumsPage.xaml.cs" afterDir="false" />
-    </list>
+    <list default="true" id="63d3dc43-118f-4821-a53d-ba74aebce4eb" name="Changes" comment="Push" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +80,7 @@
       <workItem from="1647356164576" duration="2869000" />
       <workItem from="1647362549355" duration="962000" />
       <workItem from="1647429605935" duration="3701000" />
-      <workItem from="1647448649721" duration="5139000" />
+      <workItem from="1647448649721" duration="5691000" />
     </task>
     <task id="LOCAL-00001" summary="Merging">
       <created>1647339799955</created>
