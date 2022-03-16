@@ -1,20 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:SpotiliveTryHard.ViewModels" x:DataType="viewmodels:AlbumsViewModel"
-             x:Class="SpotiliveTryHard.Pages.AlbumsPage">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:SpotiliveTryHard.ViewModels"
+             x:Class="SpotiliveTryHard.Pages.AlbumsPage"
+             BackgroundColor="#444">
     <ContentPage.Content>
         <StackLayout>
-            <SearchBar x:Name="SearchBar" SearchCommand="{Binding SearchCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}" />
-            <ListView
-          CachingStrategy="RecycleElement"
-          ItemsSource="{Binding ListOfAlbums}"
-          RowHeight="70">
+            <Label Text="Albums"
+                   FontSize="60"
+                   TextColor="White"
+                   Margin="20, 0"/>
+            <SearchBar CancelButtonColor="White" TextColor="White" x:Name="SearchBar" Placeholder="Rechercher des albums" PlaceholderColor="White" SearchCommand="{Binding SearchCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}" />
+            <ListView CachingStrategy="RecycleElement"
+                      ItemsSource="{Binding ListOfAlbums}"
+                      RowHeight="120"
+                      SeparatorVisibility="None"
+                      Margin="10">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Margin="8">
-                                <Label Text="{Binding}" />
-                            </StackLayout>
+                        <ViewCell Tapped="ViewCell_Tapped">
+                            <Grid RowSpacing="10"
+                                  ColumnSpacing="10"
+                                  Padding="10, 0"
+                                  Margin="10"
+                                  BackgroundColor="#222">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Thumbnail}"
+                                       WidthRequest="75"
+                                       HeightRequest="75"/>
+                                <Label Grid.Column="1"
+                                       VerticalOptions="Center"
+                                       Text="{Binding Name}"
+                                       TextColor="White"
+                                       FontSize="Large"/>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

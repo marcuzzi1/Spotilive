@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using SpotifyAPI.Web;
 using SpotiliveTryHard.Models;
-using System.Diagnostics;
 using System.Windows.Input;
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace SpotiliveTryHard.ViewModels
 {
@@ -27,7 +27,7 @@ namespace SpotiliveTryHard.ViewModels
             _ = FillListAsync("TEST");
         }
 
-        public async Task FillListAsync(string search)
+        private async Task FillListAsync(string search)
         {
             var config = SpotifyClientConfig.CreateDefault();
 
@@ -42,13 +42,17 @@ namespace SpotiliveTryHard.ViewModels
 
             for (int i = 0; i < searchResponse.Albums.Items.Count; i++)
             {
-                Debug.WriteLine(searchResponse.Albums.Items[i].Name);
-                Debug.WriteLine(searchResponse.Albums.Items[i].Artists[0].Name);
-
-                var album = new Album(searchResponse.Albums.Items[i].Name);
-
+                var album = new Album(
+                    searchResponse.Albums.Items[i].Name,
+                    searchResponse.Albums.Items[i].Images[0].Url
+                    );
                 ListOfAlbums.Add(album);
             }
+        }
+
+        public void OnTapped()
+        {
+            Debug.WriteLine("TEST");
         }
 
         private ICommand _searchCommand;

@@ -1,9 +1,5 @@
 ﻿using SpotiliveTryHard.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,6 +13,11 @@ namespace SpotiliveTryHard.Pages
         {
             this.BindingContext = AlbumsViewModel.Instance;
             InitializeComponent();
+        }
+
+        private async void ViewCell_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new HomePage());
         }
     }
 }
