@@ -12,19 +12,22 @@
                    TextColor="White"
                    Margin="20, 20, 0, 0" />
 
-            <Frame Padding="0"
-                   Background="Transparent"
-                   CornerRadius="10">
-                <SearchBar
-                    CancelButtonColor="White"
-                    TextColor="White"
-                    Background="#252525"
-                    Margin="20, 10"
-                    x:Name="SearchBar"
-                    Placeholder="Rechercher des albums" PlaceholderColor="#999"
-                    SearchCommand="{Binding SearchCommand}"
-                    SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}" />
-            </Frame>
+            <StackLayout Margin="20, 10">
+                <Frame Padding="0"
+                       Background="Transparent"
+                       CornerRadius="8"
+                       IsClippedToBounds="True">
+                    <StackLayout>
+                        <SearchBar CancelButtonColor="White"
+                               TextColor="White"
+                               Background="#252525"
+                               x:Name="SearchBar"
+                               Placeholder="Rechercher des albums" PlaceholderColor="#999"
+                               SearchCommand="{Binding SearchCommand}"
+                               SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
 
             <CollectionView
                 ItemsSource="{Binding ListOfAlbums}"
@@ -33,31 +36,32 @@
                 SelectionChanged="ViewCell_Tapped">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Padding="0"
-                               Background="Transparent"
-                               CornerRadius="40">
-                            <StackLayout>
-                                <Grid RowSpacing="10"
-                                  ColumnSpacing="10"
-                                  Margin="10"
-                                  BackgroundColor="#272727">
+                        <StackLayout Margin="10">
+                            <Frame Padding="0"
+                               BackgroundColor="Transparent"
+                               CornerRadius="8"
+                               IsClippedToBounds="True">
+                                <StackLayout>
+                                    <Grid RowSpacing="10"
+                                          ColumnSpacing="10"
+                                          BackgroundColor="#272727">
 
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
 
-                                    <Image Grid.Column="0"
+                                        <Image Grid.Column="0"
                                        Grid.RowSpan="2"
                                        Source="{Binding Thumbnail}"
                                        WidthRequest="80"
                                        HeightRequest="80" />
 
-                                    <Label Grid.Column="1"
+                                        <Label Grid.Column="1"
                                        Grid.Row="0"
                                        Padding="0, 10, 10, 0"
                                        Text="{Binding Name}"
@@ -66,7 +70,7 @@
                                        TextColor="White"
                                        FontSize="Large" />
 
-                                    <Label Grid.Column="1"
+                                        <Label Grid.Column="1"
                                        Grid.Row="1"
                                        Padding="0, 0, 10, 10"
                                        VerticalOptions="End"
@@ -74,9 +78,10 @@
                                        LineBreakMode="TailTruncation"
                                        Text="{Binding Artist}"
                                        TextColor="#BBB"/>
-                                </Grid>
-                            </StackLayout>
-                        </Frame>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

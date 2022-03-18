@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using SpotifyAPI.Web;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace SpotiliveTryHard.ViewModels
 {
@@ -42,6 +44,23 @@ namespace SpotiliveTryHard.ViewModels
             var handler = PropertyChanged;
             if (handler != null)
                 handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public BaseViewModel()
+        {
+            _ = InitSpotify();
+        }
+
+        protected SpotifyClient spotify;
+
+        private async Task InitSpotify()
+        {
+            var config = SpotifyClientConfig.CreateDefault();
+
+            var request = new ClientCredentialsRequest("04a12d4c788943579aa277274d179ac8", "f4cec9611d5245d39efa7c64992b0484");
+            var response = await new OAuthClient(config).RequestToken(request);
+
+            spotify = new SpotifyClient(config.WithToken(response.AccessToken));
         }
     }
 }

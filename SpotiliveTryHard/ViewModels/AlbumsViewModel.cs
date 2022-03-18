@@ -4,7 +4,7 @@ using SpotifyAPI.Web;
 using SpotiliveTryHard.Models;
 using System.Windows.Input;
 using Xamarin.Forms;
-using System.Diagnostics;
+using System;
 
 namespace SpotiliveTryHard.ViewModels
 {
@@ -27,13 +27,6 @@ namespace SpotiliveTryHard.ViewModels
 
         private async Task FillListAsync(string search)
         {
-            var config = SpotifyClientConfig.CreateDefault();
-
-            var request = new ClientCredentialsRequest("04a12d4c788943579aa277274d179ac8", "f4cec9611d5245d39efa7c64992b0484");
-            var response = await new OAuthClient(config).RequestToken(request);
-
-            var spotify = new SpotifyClient(config.WithToken(response.AccessToken));
-
             var searchResponse = await spotify.Search.Item(new SearchRequest(SearchRequest.Types.Album, search));
 
             ListOfAlbums.Clear();
@@ -42,9 +35,11 @@ namespace SpotiliveTryHard.ViewModels
             {
                 var res = searchResponse.Albums.Items[i];
                 var album = new Album(
+                    res.Id,
                     res.Name,
                     res.Images[0].Url,
-                    res.Artists[0].Name
+                    res.Artists[0].Name,
+                    DateTime.Parse(res.ReleaseDate).Year.ToString()
                     );
                 ListOfAlbums.Add(album);
             }
