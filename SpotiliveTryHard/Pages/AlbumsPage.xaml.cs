@@ -13,7 +13,7 @@ namespace SpotiliveTryHard.Pages
     {
         public AlbumsPage()
         {
-            this.BindingContext = AlbumsViewModel.Instance;
+            BindingContext = AlbumsViewModel.Instance;
             InitializeComponent();
         }
 

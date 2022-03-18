@@ -2,8 +2,6 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodels="clr-namespace:SpotiliveTryHard.ViewModels"
-             x:DataType="viewmodels:AlbumDetailsViewModel"
              x:Class="SpotiliveTryHard.Pages.AlbumDetailsPage"
              Shell.NavBarIsVisible="True"
              Shell.BackgroundColor="#111">
@@ -38,6 +36,54 @@
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
+                    <CollectionView
+                        ItemsSource="{Binding AlbumTracks}"
+                        Margin="10, 10, 10, 0"
+                        SelectionMode="Single">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Margin="10">
+                                    <Frame Padding="0"
+                                           BackgroundColor="Transparent"
+                                           CornerRadius="8"
+                                           IsClippedToBounds="True">
+                                        <StackLayout>
+                                            <Grid RowSpacing="10"
+                                                  ColumnSpacing="10"
+                                                  BackgroundColor="#272727">
+
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Column="1"
+                                                       Grid.Row="0"
+                                                       Padding="0, 10, 10, 0"
+                                                       Text="{Binding Name}"
+                                                       MaxLines="1"
+                                                       LineBreakMode="TailTruncation"
+                                                       TextColor="White"
+                                                       FontSize="Large" />
+
+                                                <Label Grid.Column="1"
+                                                       Grid.Row="1"
+                                                       Padding="0, 0, 10, 10"
+                                                       VerticalOptions="End"
+                                                       MaxLines="1"
+                                                       LineBreakMode="TailTruncation"
+                                                       Text="{Binding Artist}"
+                                                       TextColor="#BBB" />
+                                            </Grid>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </StackLayout>
             </ScrollView.Content>
         </ScrollView>

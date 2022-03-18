@@ -16,14 +16,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63d3dc43-118f-4821-a53d-ba74aebce4eb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SpotiliveTryHard/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpotiliveTryHard/Models/Track.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SpotiliveTryHard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpotiliveTryHard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard.Android/Resources/Resource.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard.Android/Resources/Resource.designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard.Android/Resources/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard.Android/Resources/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard.Android/Resources/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard.Android/Resources/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/Models/Album.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/Models/Album.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumDetails.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumDetails.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumsPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumsPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumDetailsPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumDetailsPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumDetailsPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumDetailsPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumsPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/AlbumsPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/Pages/HomePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/HomePage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/ViewModels/AlbumDetailsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/ViewModels/AlbumDetailsViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/ViewModels/AlbumsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/ViewModels/AlbumsViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +31,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/27360e08a88c40689896c5b7ef75f49e2fe00/c2/4d30dd14/SearchRequest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fca9b18cc1db2e1ee678464c9fceec58d4b31693637f951f3088df334e5eec/Xamarin.Forms.Platform.Android.FormsViewGroup.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="InvalidFacetManager">
@@ -95,7 +95,9 @@
       <workItem from="1647362549355" duration="962000" />
       <workItem from="1647429605935" duration="3701000" />
       <workItem from="1647448649721" duration="6085000" />
-      <workItem from="1647587363528" duration="4551000" />
+      <workItem from="1647587363528" duration="5686000" />
+      <workItem from="1647603623486" duration="52000" />
+      <workItem from="1647607465114" duration="5943000" />
     </task>
     <task id="LOCAL-00001" summary="Merging">
       <created>1647339799955</created>
