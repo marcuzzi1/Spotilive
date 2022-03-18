@@ -25,7 +25,7 @@ namespace SpotiliveTryHard.Pages
             }
 
             (sender as CollectionView).SelectedItem = null;
-            await Navigation.PushAsync(new AlbumDetails(album));
+            await Navigation.PushAsync(new AlbumDetailsPage(album));
         }
     }
 }

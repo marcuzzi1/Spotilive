@@ -39,8 +39,9 @@ namespace SpotiliveTryHard.ViewModels
                     res.Name,
                     res.Images[0].Url,
                     res.Artists[0].Name,
-                    DateTime.Parse(res.ReleaseDate).Year.ToString()
-                    );
+                    DateTime.Parse(res.ReleaseDate).Year.ToString(),
+                    res.TotalTracks
+                );
                 ListOfAlbums.Add(album);
             }
         }

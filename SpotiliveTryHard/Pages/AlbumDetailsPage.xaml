@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:SpotiliveTryHard.ViewModels"
+             x:DataType="viewmodels:AlbumDetailsViewModel"
+             x:Class="SpotiliveTryHard.Pages.AlbumDetailsPage"
+             Shell.NavBarIsVisible="True"
+             Shell.BackgroundColor="#111">
+    <Shell.TitleView>
+        <Label Text="Retour"
+               FontSize="Medium"
+               VerticalTextAlignment="Center">
+        </Label>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <ScrollView>
+            <ScrollView.Content>
+                <StackLayout>
+                    <Image Source="{Binding Album.Thumbnail}"
+                           WidthRequest="200"
+                           HeightRequest="200" />
+
+                    <Label Text="{Binding Album.Name}"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           Padding="20, 0" />
+
+                    <Label Text="{Binding Album.Date}"
+                           TextColor="#BBB"
+                           Padding="20, 5" />
+
+                    <Label Padding="20, 5">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Nombre de morceaux : " />
+                                <Span Text="{Binding Album.TotalTracks}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </ScrollView.Content>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

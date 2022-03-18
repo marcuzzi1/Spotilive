@@ -12,9 +12,9 @@ using Xamarin.Forms.Xaml;
 namespace SpotiliveTryHard.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AlbumDetails : ContentPage
+    public partial class AlbumDetailsPage : ContentPage
     {
-        public AlbumDetails(Album album)
+        public AlbumDetailsPage(Album album)
         {
             this.BindingContext = new AlbumDetailsViewModel(album);
             InitializeComponent();
