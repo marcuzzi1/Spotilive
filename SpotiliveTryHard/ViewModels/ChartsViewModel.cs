@@ -17,17 +17,18 @@ namespace SpotiliveTryHard.ViewModels
             set { SetValue(value); }
         }
 
-        public ChartsViewModel(string country)
+        public ChartsViewModel()
         {
             WorldTopMusic = new ObservableCollection<Track>();
+            _ = FillTopMusicsAsync();
         }
 
-        private async Task FillCountryTopMusicsAsync(string country)
+        private async Task FillTopMusicsAsync()
         {
             var spotify = await InitSpotify();
             var personalizationRequest = new PersonalizationTopRequest();
             personalizationRequest.Limit = 20;
-            var topMusics = await spotify.Personalization.GetTopTracks(personalizationRequest);
+            var topMusics = await spotify.Personalization.GetTopTracks();
             WorldTopMusic.Clear();
             for (int i = 0; i < topMusics.Items.Count; i++)
             {
