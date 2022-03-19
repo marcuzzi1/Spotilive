@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.ComTypes;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using SpotifyAPI.Web;
 using SpotiliveTryHard.Models;
@@ -32,21 +35,36 @@ namespace SpotiliveTryHard.ViewModels
 
         private async Task FillTracksListAsync(string albumId)
         {
+            var spotify = await InitSpotify();
+
             var album = await spotify.Albums.Get(albumId);
-            // AlbumTracks.Clear();
-            Debug.WriteLine("Et ça passe par là");
+
             for (int i = 0; i < album.Tracks.Items.Count; i++)
             {
-                Debug.WriteLine("Saucisse numero : " +  i);
                 var res = album.Tracks.Items[i];
+
+                TimeSpan time = TimeSpan.FromMilliseconds(res.DurationMs);
+                var parts = string.Format("{0:D2}h:{1:D2}m:{2:D2}s", time.Hours, time.Minutes, time.Seconds)
+                                  .Split(':')
+                                  .SkipWhile(s => Regex.Match(s, @"^00\w").Success)
+                                  .ToArray();
+                var duration = string.Join(":", parts).TrimStart('0');
+
+                var artists = res.Artists.ToList();
+                var names = new List<string>();
+
+                foreach(var artist in artists)
+                {
+                    names.Add(artist.Name);
+                }
+
                 var track = new Track(
-                    res.Artists[0].Name,
-                    res.DurationMs,
+                    i + 1,
+                    string.Join(", ", names),
+                    duration,
                     res.Name
                 );
-                Debug.WriteLine(track.Name);
                 AlbumTracks.Add(track);
-                
             }
         }
     }

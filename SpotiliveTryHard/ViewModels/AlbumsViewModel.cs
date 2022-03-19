@@ -23,11 +23,12 @@ namespace SpotiliveTryHard.ViewModels
 
         public AlbumsViewModel()
         {
-            ListOfAlbums = new ObservableCollection<Album>();
+            ListOfAlbums = new ObservableCollection<Album>(); FillListAsync("TEST");
         }
 
         private async Task FillListAsync(string search)
         {
+            var spotify = await InitSpotify();
             var searchResponse = await spotify.Search.Item(new SearchRequest(SearchRequest.Types.Album, search));
 
             ListOfAlbums.Clear();

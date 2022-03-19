@@ -51,16 +51,14 @@ namespace SpotiliveTryHard.ViewModels
             _ = InitSpotify();
         }
 
-        protected SpotifyClient spotify;
-
-        private async Task InitSpotify()
+        protected async Task<SpotifyClient> InitSpotify()
         {
             var config = SpotifyClientConfig.CreateDefault();
 
             var request = new ClientCredentialsRequest("04a12d4c788943579aa277274d179ac8", "f4cec9611d5245d39efa7c64992b0484");
             var response = await new OAuthClient(config).RequestToken(request);
 
-            spotify = new SpotifyClient(config.WithToken(response.AccessToken));
+            return new SpotifyClient(config.WithToken(response.AccessToken));
         }
     }
 }
