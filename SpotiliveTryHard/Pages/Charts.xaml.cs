@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace SpotiliveTryHard.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MusicsPage : ContentPage
+    public partial class ChartsPage : ContentPage
     {
-        public MusicsPage()
+        public ChartsPage()
         {
             InitializeComponent();
         }

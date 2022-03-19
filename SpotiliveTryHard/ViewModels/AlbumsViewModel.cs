@@ -23,7 +23,9 @@ namespace SpotiliveTryHard.ViewModels
 
         public AlbumsViewModel()
         {
-            ListOfAlbums = new ObservableCollection<Album>(); FillListAsync("TEST");
+            ListOfAlbums = new ObservableCollection<Album>();
+            // TODO remove this thing at the end
+            FillListAsync("TEST");
         }
 
         private async Task FillListAsync(string search)
