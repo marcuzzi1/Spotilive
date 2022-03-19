@@ -5,6 +5,7 @@
              x:Class="SpotiliveTryHard.Pages.AlbumsPage">
     <ContentPage.Content>
         <StackLayout>
+            
             <Label Text="Albums"
                    FontSize="60"
                    FontAttributes="Bold"

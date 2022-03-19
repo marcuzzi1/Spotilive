@@ -10,7 +10,6 @@ namespace SpotiliveTryHard.Models
         public string Thumbnail { get; set; }
         public string Artist { get; set; }
         public string Date { get; set; }
-        
         public int TotalTracks { get; set; }
 
         public Album(string id, string name, string thumbnailUrl, string artist, string date, int totalTracks)

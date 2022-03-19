@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SpotiliveTryHard.Pages.PlaylistDetailsPage"
+             Shell.NavBarIsVisible="True"
+             Shell.BackgroundColor="#111">
+    <Shell.TitleView>
+        <Label Text="Retour"
+               FontSize="Medium"
+               VerticalTextAlignment="Center">
+        </Label>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding PlaylistTracks}"
+                            Margin="10, 10, 10, 0"
+                            SelectionMode="Single">
+
+                <CollectionView.Header>
+                    <StackLayout>
+                        <Image Source="{Binding Playlist.Thumbnail}"
+                               WidthRequest="200"
+                               HeightRequest="200" />
+
+                        <Label Padding="20, 10">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding Playlist.Name}" 
+                                          FontSize="30"
+                                          FontAttributes="Bold"/>
+                                    <Span Text=" -  " 
+                                          FontSize="30"
+                                          FontAttributes="Bold"/>
+                                    <Span Text="{Binding Playlist.Author}"
+                                          FontSize="20"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Label Text="{Binding Playlist.Description}"
+                               TextColor="#BBB"
+                               Padding="20, 5" />
+
+                        <Label Padding="20, 5, 20, 20">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Nombre de morceaux : " />
+                                    <Span Text="{Binding Playlist.TotalTracks}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </CollectionView.Header>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="10">
+                            <Frame Padding="0"
+                                   BackgroundColor="Transparent"
+                                   CornerRadius="8"
+                                   IsClippedToBounds="True">
+                                <StackLayout>
+                                    <Grid RowSpacing="10"
+                                          ColumnSpacing="10"
+                                          BackgroundColor="#272727">
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <Label Grid.Column="1"
+                                               Grid.Row="0"
+                                               Grid.RowSpan="2"
+                                               Margin="0, 0, 5, 0"
+                                               FontSize="12"
+                                               VerticalOptions="CenterAndExpand"
+                                               Text="{Binding Index}"/>
+
+                                        <Label Grid.Column="2"
+                                               Grid.Row="0"
+                                               Grid.ColumnSpan="2"
+                                               Padding="0, 10, 10, 0"
+                                               Text="{Binding Name}"
+                                               MaxLines="1"
+                                               LineBreakMode="TailTruncation"
+                                               TextColor="White"
+                                               FontSize="20" />
+
+                                        <Label Grid.Column="2"
+                                               Grid.Row="1"
+                                               Padding="0, 0, 10, 10"
+                                               MaxLines="1"
+                                               LineBreakMode="TailTruncation"
+                                               Text="{Binding Artist}"
+                                               TextColor="#BBB" />
+
+                                        <Label Grid.Column="3"
+                                               Grid.Row="1"
+                                               Padding="0, 0, 10, 10"
+                                               HorizontalOptions="End"
+                                               MaxLines="1"
+                                               LineBreakMode="TailTruncation"
+                                               Text="{Binding Duration}"
+                                               TextColor="#BBB" />
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
