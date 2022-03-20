@@ -64,7 +64,8 @@ namespace SpotiliveTryHard.ViewModels
                         i + 1,
                         string.Join(", ", names),
                         duration,
-                        fullTrack.Name
+                        fullTrack.Name,
+                        fullTrack.Album.Id
                     );
                     PlaylistTracks.Add(track);
                 }

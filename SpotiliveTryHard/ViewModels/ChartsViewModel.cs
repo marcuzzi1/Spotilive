@@ -51,7 +51,8 @@ namespace SpotiliveTryHard.ViewModels
                     i + 1,
                     string.Join(", ", names),
                     duration,
-                    res.Name
+                    res.Name,
+                    res.Album.Id
                 );
                 WorldTopMusic.Add(track);
             }

@@ -31,6 +31,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Pages\ChartsPage.xaml.cs">
+      <DependentUpon>ChartsPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="AppShell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -40,7 +46,7 @@
     <EmbeddedResource Update="Pages\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Charts.xaml">
+    <EmbeddedResource Update="Pages\ChartsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\PlaylistDetailsPage.xaml">

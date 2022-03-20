@@ -19,5 +19,15 @@ namespace SpotiliveTryHard.Pages
             BindingContext = new PlaylistDetailsViewModel(playlist);
             InitializeComponent();
         }
+        private async void ViewCell_Tapped(object sender, SelectionChangedEventArgs e)
+        {
+            if (!(e.CurrentSelection.FirstOrDefault() is Track track))
+            {
+                return;
+            }
+
+            (sender as CollectionView).SelectedItem = null;
+            await Navigation.PushAsync(new AlbumDetailsPage(track.AlbumId));
+        }
     }
 }
