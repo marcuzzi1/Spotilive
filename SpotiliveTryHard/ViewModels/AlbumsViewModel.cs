@@ -5,7 +5,6 @@ using SpotiliveTryHard.Models;
 using System.Windows.Input;
 using Xamarin.Forms;
 using System;
-using System.Diagnostics;
 
 namespace SpotiliveTryHard.ViewModels
 {
@@ -24,17 +23,27 @@ namespace SpotiliveTryHard.ViewModels
         public AlbumsViewModel()
         {
             ListOfAlbums = new ObservableCollection<Album>();
-            // TODO remove this thing at the end
-            FillListAsync("TEST");
+            /*
+             * Par manque de temps, nous n'avons pas pu faire une base de données locale qui aurait garder les résulats de la dernière recherche. 
+             * C'est ici que le remplissage via la base aurait pu se faire.
+            */
         }
 
+        /// <summary>
+        /// Remplis la liste d'albums en fonction du filtre de recherche en paramètre.
+        /// </summary>
+        /// <param name="search">filre de recherche</param>
+        /// <returns></returns>
         private async Task FillListAsync(string search)
         {
             var spotify = await InitSpotify();
+
             var searchResponse = await spotify.Search.Item(new SearchRequest(SearchRequest.Types.Album, search));
 
+            // vide la liste si une précédente recherche a déjà été faite
             ListOfAlbums.Clear();
 
+            // remplis la liste des albums
             for (int i = 0; i < searchResponse.Albums.Items.Count; i++)
             {
                 var res = searchResponse.Albums.Items[i];
@@ -51,6 +60,9 @@ namespace SpotiliveTryHard.ViewModels
         }
 
         private ICommand _searchCommand;
+        /// <summary>
+        /// Appelle la fonction FillListAsync avec la recherche entrée par l'utilisateur via la barre de recherche.
+        /// </summary>
         public ICommand SearchCommand
         {
             get

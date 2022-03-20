@@ -46,11 +46,11 @@ namespace SpotiliveTryHard.ViewModels
                 handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public BaseViewModel()
-        {
-            _ = InitSpotify();
-        }
-
+        /// <summary>
+        /// Créé un nouveau client Spotify, avec une configuration par défaut.
+        /// Les IDs utilisés ont été récupérés via la création d'une application sur le portail développeurs de Spotify.
+        /// </summary>
+        /// <returns>le client Spotify créé</returns>
         protected async Task<SpotifyClient> InitSpotify()
         {
             var config = SpotifyClientConfig.CreateDefault();

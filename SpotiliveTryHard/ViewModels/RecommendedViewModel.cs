@@ -30,10 +30,15 @@ namespace SpotiliveTryHard.ViewModels
             _ = FillRecommendationsAsync();
         }
 
+        /// <summary>
+        /// Remplis la liste de playlists recommandés en France
+        /// </summary>
+        /// <returns></returns>
         private async Task FillRecommendationsAsync()
         {
             var spotify = await InitSpotify();
 
+            // création de la requête afin de préciser le pays voulu
             var request = new FeaturedPlaylistsRequest
             {
                 Country = "FR",
@@ -43,6 +48,7 @@ namespace SpotiliveTryHard.ViewModels
 
             Message = response.Message;
 
+            // remplis la liste de playlist
             for (int i = 0; i < response.Playlists.Items.Count; i++)
             {
                 var res = response.Playlists.Items[i];
