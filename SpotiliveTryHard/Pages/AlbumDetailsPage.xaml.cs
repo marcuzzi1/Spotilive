@@ -19,5 +19,11 @@ namespace SpotiliveTryHard.Pages
             BindingContext = new AlbumDetailsViewModel(album);
             InitializeComponent();
         }
+
+        public AlbumDetailsPage(string albumId)
+        {
+            BindingContext = new AlbumDetailsViewModel(albumId);
+            InitializeComponent();
+        }
     }
 }

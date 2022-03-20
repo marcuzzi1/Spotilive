@@ -33,11 +33,27 @@ namespace SpotiliveTryHard.ViewModels
             _ = FillTracksListAsync(album.Id);
         }
 
+        public AlbumDetailsViewModel(string albumId)
+        {
+            AlbumTracks = new ObservableCollection<Track>();
+            _ = FillTracksListAsync(albumId);
+        }
+
         private async Task FillTracksListAsync(string albumId)
         {
             var spotify = await InitSpotify();
 
             var album = await spotify.Albums.Get(albumId);
+
+            // sets the Album property if we used the constructor with the albumId
+            Album = new Album(
+                    album.Id,
+                    album.Name,
+                    album.Images[0].Url,
+                    album.Artists[0].Name,
+                    DateTime.Parse(album.ReleaseDate).Year.ToString(),
+                    album.TotalTracks
+                );
 
             for (int i = 0; i < album.Tracks.Items.Count; i++)
             {
@@ -62,7 +78,8 @@ namespace SpotiliveTryHard.ViewModels
                     i + 1,
                     string.Join(", ", names),
                     duration,
-                    res.Name
+                    res.Name,
+                    albumId
                 );
                 AlbumTracks.Add(track);
             }

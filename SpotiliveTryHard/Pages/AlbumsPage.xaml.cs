@@ -1,6 +1,4 @@
 ﻿using SpotiliveTryHard.ViewModels;
-using System;
-using System.Diagnostics;
 using System.Linq;
 using SpotiliveTryHard.Models;
 using Xamarin.Forms;
