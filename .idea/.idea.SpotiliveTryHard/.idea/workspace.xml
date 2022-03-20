@@ -17,8 +17,6 @@
   <component name="ChangeListManager">
     <list default="true" id="63d3dc43-118f-4821-a53d-ba74aebce4eb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SpotiliveTryHard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpotiliveTryHard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/Pages/Charts.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/Charts.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/Pages/Charts.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/Pages/Charts.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpotiliveTryHard/ViewModels/ChartsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiliveTryHard/ViewModels/ChartsViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,6 +94,7 @@
       <workItem from="1647633907571" duration="182000" />
       <workItem from="1647706130242" duration="3951000" />
       <workItem from="1647710141596" duration="4384000" />
+      <workItem from="1647768118250" duration="973000" />
     </task>
     <task id="LOCAL-00001" summary="Merging">
       <created>1647339799955</created>

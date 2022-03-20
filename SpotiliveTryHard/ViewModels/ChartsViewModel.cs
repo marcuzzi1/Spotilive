@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -25,11 +26,18 @@ namespace SpotiliveTryHard.ViewModels
 
         private async Task FillTopMusicsAsync()
         {
+            Debug.WriteLine("Affichage des tops");
             var spotify = await InitSpotify();
+            Debug.WriteLine("Spotify client initialisé");
             var personalizationRequest = new PersonalizationTopRequest();
+            Debug.WriteLine("Requete perso");
             personalizationRequest.Limit = 20;
-            var topMusics = await spotify.Personalization.GetTopTracks();
+            Debug.WriteLine("Limite de la requete");
+            var topMusics = await spotify.Personalization.GetTopTracks(personalizationRequest);
+            Debug.WriteLine("Recup des tops");
             WorldTopMusic.Clear();
+            Debug.WriteLine("Vidage de la liste");
+            Debug.WriteLine(topMusics.Items.Count);
             for (int i = 0; i < topMusics.Items.Count; i++)
             {
                 var res = topMusics.Items[i];
