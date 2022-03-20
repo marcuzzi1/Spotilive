@@ -2,22 +2,22 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SpotiliveTryHard.Pages.ChartsPage">
+             x:Class="SpotiliveTryHard.Pages.RecommendedPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Classements mondiaux"
+            <Label Text="Recommendations en France"
                    FontSize="30"
                    FontAttributes="Bold"
                    TextColor="White"
                    Margin="20, 20, 0, 0" />
 
             <StackLayout>
-                <CollectionView ItemsSource="{Binding WorldTopMusic}"
+                <CollectionView ItemsSource="{Binding ListOfRecommendations}"
                                 Margin="10, 10, 10, 0"
                                 SelectionMode="Single">
                     <CollectionView.Header>
-                        <Label Text="Meilleures musiques (top 20)"
-                               Padding="5,10,0,0"
+                        <Label Text="{Binding Message}"
+                               Padding="5,10, 5, 20"
                                FontSize="20">
                         </Label>
                     </CollectionView.Header>
@@ -37,47 +37,35 @@
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto" />
                                                 <ColumnDefinition Width="Auto" />
-                                                <ColumnDefinition Width="Auto" />
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="Auto" />
                                                 <RowDefinition Height="Auto" />
                                             </Grid.RowDefinitions>
 
+                                            <Image Grid.Column="0"
+                                                   Grid.RowSpan="2"
+                                                   Source="{Binding Thumbnail}"
+                                                   WidthRequest="80"
+                                                   HeightRequest="80"/>
+
                                             <Label Grid.Column="1"
                                                    Grid.Row="0"
-                                                   Grid.RowSpan="2"
-                                                   Margin="0, 0, 5, 0"
-                                                   FontSize="12"
-                                                   VerticalOptions="CenterAndExpand"
-                                                   Text="{Binding Index}" />
-
-                                            <Label Grid.Column="2"
-                                                   Grid.Row="0"
-                                                   Grid.ColumnSpan="2"
                                                    Padding="0, 10, 10, 0"
                                                    Text="{Binding Name}"
                                                    MaxLines="1"
                                                    LineBreakMode="TailTruncation"
                                                    TextColor="White"
-                                                   FontSize="20" />
+                                                   FontSize="Large" />
 
-                                            <Label Grid.Column="2"
+                                            <Label Grid.Column="1"
                                                    Grid.Row="1"
                                                    Padding="0, 0, 10, 10"
+                                                   VerticalOptions="End"
                                                    MaxLines="1"
                                                    LineBreakMode="TailTruncation"
-                                                   Text="{Binding Artist}"
-                                                   TextColor="#BBB" />
-
-                                            <Label Grid.Column="3"
-                                                   Grid.Row="1"
-                                                   Padding="0, 0, 10, 10"
-                                                   HorizontalOptions="End"
-                                                   MaxLines="1"
-                                                   LineBreakMode="TailTruncation"
-                                                   Text="{Binding Duration}"
-                                                   TextColor="#BBB" />
+                                                   Text="{Binding Author}"
+                                                   TextColor="#BBB"/>
                                         </Grid>
                                     </StackLayout>
                                 </Frame>

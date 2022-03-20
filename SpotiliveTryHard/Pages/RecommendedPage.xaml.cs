@@ -10,11 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace SpotiliveTryHard.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ChartsPage : ContentPage
+    public partial class RecommendedPage : ContentPage
     {
-        public ChartsPage()
+        public RecommendedPage()
         {
-            BindingContext = new ChartsViewModel();
+            BindingContext = new RecommendedViewModel();
             InitializeComponent();
         }
     }

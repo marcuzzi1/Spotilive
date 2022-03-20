@@ -34,10 +34,10 @@
                 <FontImageSource FontFamily="Material" Glyph="&#xe019;" />
             </ShellContent.Icon>
         </ShellContent>
-        <ShellContent Title="Tops"
-                      ContentTemplate="{DataTemplate views:ChartsPage}">
+        <ShellContent Title="Recommendés"
+                      ContentTemplate="{DataTemplate views:RecommendedPage}">
             <ShellContent.Icon>
-                <FontImageSource FontFamily="Material" Glyph="&#xf22b;" />
+                <FontImageSource FontFamily="Material" Glyph="&#xe9d2;" />
             </ShellContent.Icon>
         </ShellContent>
     </TabBar>
