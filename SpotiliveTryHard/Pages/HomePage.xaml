@@ -1,9 +1,27 @@
-﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SpotiliveTryHard.Pages.HomePage">
     <ContentPage.Content>
-      <StackLayout>
-          <Label Text="Ok donc si je fais ça ça marche !!" />
-      </StackLayout>
-  </ContentPage.Content>
+        <StackLayout>
+            <Label Text="Spotilive"
+                   FontSize="60"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center" />
+
+            <Label
+                Text="Cette application permet de chercher des playlists, des albums et de voir certaines recommandations de musiques. Si vous cliquez sur une playlist ou un album que vous avez cherché vous pourrez voir le détail et les chansons qu'ils contiennent."
+                Padding="20, 0"
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                Margin="0, 50 , 0,0" />
+            
+            <Label
+                Text="Vous pouvez vous amuser à parcourir les onglets disponibles dans la barre en dessous et cliquer partout où vous pouvez ^^"
+                Padding="20, 0"
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                Margin="0, 50 , 0,0" />
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
