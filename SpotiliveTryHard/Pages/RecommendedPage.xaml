@@ -14,7 +14,8 @@
             <StackLayout>
                 <CollectionView ItemsSource="{Binding ListOfRecommendations}"
                                 Margin="10, 10, 10, 0"
-                                SelectionMode="Single">
+                                SelectionMode="Single"
+                                SelectionChanged="ViewCell_Tapped">
                     <CollectionView.Header>
                         <Label Text="{Binding Message}"
                                Padding="5,10, 5, 20"
